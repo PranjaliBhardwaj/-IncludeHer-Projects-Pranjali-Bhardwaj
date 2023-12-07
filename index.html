@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>openAI Image Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body >
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Outfit Generator</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Explore</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Check It Out
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Search by cloth print </a></li>
+              <li><a class="dropdown-item" href="#"> Search by shoes</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Accessories</a></li>
+            </ul>
+          </li>
+         
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <h1 class="head">Your idea provider by OpenAI</h1>
+  <form>
+      <div  class="form-text">Give us idea we will give you inspiration.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Type here something like outfit ideas with black short plain satin skirt</label>
+      <input id="imgprompt" type="text" class="form-control" >
+    </div>
+    <button id="submitbtn" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div class="container my-4" >
+    <div class="svgContainer d-flex" >
+     
+      <svg id="loadingGif"  class="d-none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;background:#fff;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+    <g transform="rotate(0 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.9411764705882353s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(21.176470588235293 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.8823529411764706s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(42.35294117647059 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.8235294117647058s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(63.529411764705884 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.7647058823529411s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(84.70588235294117 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.7058823529411765s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(105.88235294117646 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.6470588235294118s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(127.05882352941177 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5882352941176471s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(148.23529411764707 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5294117647058824s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(169.41176470588235 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.47058823529411764s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(190.58823529411765 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.4117647058823529s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(211.76470588235293 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.35294117647058826s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(232.94117647058823 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.29411764705882354s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(254.11764705882354 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.23529411764705882s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(275.29411764705884 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.17647058823529413s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(296.47058823529414 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.11764705882352941s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(317.6470588235294 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.058823529411764705s" repeatCount="indefinite"></animate>
+      </rect>
+    </g><g transform="rotate(338.8235294117647 50 50)">
+      <rect x="45.5" y="10.5" rx="4.5" ry="9" width="9" height="25" fill="#1d070b">
+        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animate>
+      </rect>
+    </g>
+    </svg>
+       </div>
+    <div class="row imageCont" >
+      <div class="col-md-4">
+        <img width="350" height="500" src="https://images.squarespace-cdn.com/content/v1/63f6daebd6676f7b4398743a/1677425229713-FENHS0CZUB7IPVJFNW46/glamorous+fashion+style+++glamorous+outfits+for+ladies+glamorous+outfit+ideas+glamour+fashion+online+store+++glamorous+fashion+style+what+is+glamorous+style+Glamorous+outfit+ideas++Glamorous+outfits+for+ladies" class="img-responsive">
+      </div>
+      <div class="col-md-4">
+        <img width="350" height="500" src="https://www.stylebysavina.com/wp-content/uploads/2022/05/minimalist-outfit-ideas.jpg" class="img-responsive">
+      </div>
+      <div class="col-md-4">
+        <img width="350" height="500" src="https://sarahjoyblog.com/wp-content/uploads/2022/10/Fall-Outfit-Ideas-2.jpg" class="img-responsive">
+      </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+      <script>
+       
+        submitbtn.addEventListener("click", (e) => {
+           <loadingGif.classList.toggle("d-none")
+          e.preventDefault();
+          const promptTxt = imgprompt.value;
+          fetch("/generateimages/" + promptTxt, {
+        //        print("prompt:", prompt)
+ method: "POST",
+        //    headers: {
+        //      "<Content></Content>"
+        //    };
+        //      body: JSON.stringfy({ prompt})
+        // })@app.route('/generateimages/<prompt>')
+def generate(prompt):
+    print("prompt:", prompt)
+    response = openai.images.generate(
+        model="dall-e-3",
+        prompt=prompt,
+        size="1024x1024",
+        quality="standard",
+        n=6,
+    )
+    print(response)
+    return jsonify(response)
+<script>
+      
+    const submitbtn = document.getElementById("submitbtn");
+    submitbtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const prompt = document.getElementById("exampleInputPassword1").value;
+      fetch(`/generateimages/${prompt}`, {
+          method: "GET",
+      })
+      .then(response => response.json())
+      .then(data => {
+         <
+            loadingGif.classList.toggle("d-none") 
+        console.log(data);
+        const images = data.data.images;
+        const container = document.querySelector(".imageCont");
+        let totalHtml = " ";
+        
+        images.forEach(image => {
+          let html = `<div class="col-md-4">
+            <img width="350" height="500" src="${image.url}" class="img-responsive">
+          </div>`;
+          totalHtml += html;
+        })
+        container.innerHTML = totalHtml;
+      });
+    });
+</script>
+
+      </script>
+</body>
+</html>
